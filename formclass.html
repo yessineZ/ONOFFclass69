@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <input id="hello" type="text" placeholder="writeMoreThan3Caracters" />
+      <input type="submit" name="input1" />
+    </form>
+    <p class="message"></p>
+
+
+    <ul>
+      <Li class="red">Red</Li>
+      <li class="yellow">Yellow</li>
+      <li class="brown"></li>
+    </ul>
+    <script>
+      let userInput = document.getElementById("hello");
+      let p = document.querySelector(".message");
+      console.log(userInput);
+
+      userInput.addEventListener("change", function () {
+        if (userInput.value.length >= 3) {
+          userInput.style.backgroundColor = "green";
+        } else {
+          userInput.style.backgroundColor = "red";
+        }
+      });
+
+      document.forms[0].onsubmit = function (e) {
+        if (userInput.value.length >= 3) {
+          p.innerText = `bienvenu ${userInput.value} `;
+        } else {
+          p.innerText = `interdie ${userInput.value} `;
+        }
+        e.preventDefault();
+      };
+    </script>
+  </body>
+</html>

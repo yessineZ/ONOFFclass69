@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Roboto,Arial;
+        font-size: 20px ;
+    }
+
+
+    
+
+    .interMilan {
+        display:  flex ;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 200px ;
+        margin-left: 500px;
+        width: 700px ;
+
+        background-color: rgb(86, 88, 87);
+        
+    }
+
+    .btn {
+        font-size:20px  ;
+        color : rgb(44, 167, 171) ;
+        background-color: rgb(231, 223, 223) ;
+        border-radius: 5px ;
+        transition: all 100ms ease-in;
+        margin: 10px ;
+
+    }
+    
+    
+    .btn:hover {
+        background-color: antiquewhite;
+        transition: ease ;
+        padding: 5px 5px ;
+    }
+
+    .text {
+        margin-left: 720px;
+        width: 300px  ;
+        color : rgb(255, 255, 255) ; 
+        background-color: rgb(90, 86, 86);
+        text-align: center;
+
+    }
+
+    .exit-gif {
+        display: none;
+        width: 500px; 
+    }
+
+    
+
+</style>
+
+<body>
+    <div class="interMilan">
+        <div class="led-img">
+            <img class="on" src="led-on (2).png">
+            <img class="off" src="led-off (2).png">
+        </div>
+        <div>
+            <button class="btn">ON/OFF</button>
+        </div>
+
+    
+    </div>
+    <p class="text"></p>
+    <video width="300px" class="exit-gif" src="exit.mp4" autoplay></video>
+    
+
+
+
+
+    <script>
+        let onoff = true ; 
+        let imgon = document.querySelector(".on") ; 
+        let imgoff = document.querySelector(".off") ; 
+        let btn = document.querySelector(".btn")  ;
+        let text = document.querySelector(".text") ; 
+        let imageExit = document.querySelector(".exit-gif") ; 
+        console.log(imageExit) ; 
+
+        console.log(btn) ; 
+        console.log(imgon) ; 
+        console.log(imgoff) ;
+
+
+        btn.addEventListener("click",function(){
+            if(onoff===true) {
+                imgoff.style.display = "none" ;
+                imgon.style.display = "block" ; 
+                btn.style.color ="red" ;
+                btn.innerHTML = "ON"  ;
+                text.innerHTML = "EL DHAW YECH3EL" ;
+                onoff = false ; 
+                console.log(onoff)  ;
+            }
+
+            else {
+                imgon.style.display = "none" ; 
+                imgoff.style.display = "block" ; 
+                btn.style.color ="black" ; 
+                btn.innerHTML ="OFF"; 
+                text.innerHTML="CHKOUN TAFA EL DHAW !!!!" ; 
+                onoff = true ; 
+            }
+        });
+        btn.onmouseenter= function(){
+            imgoff.style.transform = "rotate(180deg)"  ; 
+            imgon.style.transform = "rotate(180deg)" ; 
+        
+        };
+        
+        
+        btn.onmouseleave = function(){
+            imgoff.style.transform = "rotate(0deg)"  ; 
+            imgon.style.transform = "rotate(0deg)" ; 
+        
+        };
+
+        window.addEventListener('beforeunload', function () {
+            imageExit.classList.remove("exit-gif") ; 
+
+            
+            
+        });
+
+
+        
+    </script>
+</body>
+
+
+</html>

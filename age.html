@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style >
+        #plusA, #moinsA,#ageMoy {
+            font-size: 20px ;
+            color : burlywood ;
+            border-radius: 5px ;
+            border: 1px solid ;
+
+        }
+
+       
+
+        .p {
+            font-family: Roboto , Arial ;
+            font-size: 20px ;
+        }
+    </style>
+    <p class="nameCl">Bob </p>
+    <p class="naissance">2000</p>
+    <p class="nameCl">Rosita </p>
+    <p class="naissance">1900</p>
+    <p class="nameCl">Gertrude</p>
+    <p class="naissance">2016</p>
+    <p class="nameCl">Rose</p>
+    <p class="naissance">2006</p>
+
+    <button id="plusA">Le Plus Age</button>
+    <p class="plusageText"></p>
+    <p class="ageP"></p>
+    
+    <button id="moinsA">LE Moins Age</button>
+    <p class="moinsageText"></p>
+    <p class="ageM"></p>
+
+    <button id="ageMoy">Age Moy</button>
+    <p class="ageMoyenne"></p>
+    <script>
+        let name = document.getElementsByClassName("nameCl") ;
+        let age = document.getElementsByClassName("naissance") ; 
+        console.log(name) ; 
+
+        let names = [] ;
+        let ages = [] ;  
+        for(let i = 0 ;i <name.length ;i++){
+            names.push(name[i].textContent) ; 
+        }
+        console.log(names) ; 
+
+        for(i=0 ;i<age.length;i++){
+            ages.push(age[i].textContent) ; 
+        }
+        console.log(ages) ; 
+
+        
+        let a = new Date() ;
+        let year = a.getFullYear() ;
+        console.log(year) ;
+
+        let array1 = ages.map(function(ele){
+            return  year-ele ;
+        })
+
+        console.log(array1) ; 
+
+        let max = array1[0] ; 
+        let min = array1[0] ; 
+        for (i=1;i<array1.length;i++){
+            if(max<array1[i]){
+                max= array1[i] ; 
+            }
+            if(min>array1[i]) {
+                min = array1[i] ; 
+            }
+        }
+    
+        let indexOfMaxAge = array1.indexOf(max) ;
+        let indexOfMinAge = array1.indexOf(min) ; 
+        console.log(indexOfMaxAge) ; 
+
+
+        
+        let PlusAge = document.getElementById("plusA")
+        let miniAge = document.getElementById("moinsA") ; 
+        console.log(PlusAge) ; 
+        let PlusText1 = document.querySelector(".plusageText") ; 
+        let PlusText2  = document.querySelector(".ageP") ;
+
+        let moinText1 = document.querySelector(".moinsageText") ; 
+        let moinText2 = document.querySelector(".ageM") ; 
+
+        PlusAge.onclick = function() {
+            PlusText1.innerHTML = `Le plus Age est ${names[indexOfMaxAge]}` ;
+            PlusText2.innerHTML = `Age : ${array1[indexOfMaxAge]}` ; 
+        }
+
+
+        miniAge.onclick = function(){
+            moinText1.innerHTML = `Le moin Age est ${names[indexOfMinAge]}` ;
+            moinText2.innerHTML = `Age : ${array1[indexOfMinAge]}` ; 
+
+        }
+
+        let abc = document.querySelectorAll("p") ;
+        for (let j=0 ; j<abc.length ;j++ ){
+            abc[j].style.cssText= "font-family : Roboto , Arial ; font-size :20px ; color : brown;"
+        }
+        
+    
+       document.body.style.backgroundColor = "whitesmoke"; 
+
+       let moy = 0 ; 
+       for (i=0 ;i<array1.length;i++){
+            moy+= array1[i] ; 
+       }
+
+       moy/=array1.length ; 
+       console.log(moy) ; 
+
+       let moyB =document.getElementById("ageMoy") ;
+       let pmoy = document.querySelector(".ageMoyenne") ; 
+       console.log(pmoy)  ; 
+
+       moyB.onclick = function(){
+        pmoy.innerHTML = `La Moyenne d'Age est ${moy}` ; 
+
+       }
+
+
+
+
+         
+       console.log(parseInt(5+"65hello")) ; 
+         
+
+        
+    </script>
+</body>
+</html>
